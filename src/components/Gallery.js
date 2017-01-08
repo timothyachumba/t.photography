@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './Header'
+import ImageSlider from './ImageSlider'
 
 class Gallery extends React.Component {
 
@@ -20,6 +21,8 @@ class Gallery extends React.Component {
       <div className="App">
 
         <Header/>
+
+        <ImageSlider/>
 
 
       </div>

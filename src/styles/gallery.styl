@@ -1,0 +1,78 @@
+.progressBar
+  height 6px
+  will-change width
+  transition width 600ms easing
+  background black
+  position fixed
+
+.slick-slider
+  height 100vh
+  padding 76px 0
+
+.slick-slide
+  opacity 0
+  will-change opacity
+  transition opacity 600ms linear
+
+  &.slick-active
+    opacity 1
+
+.slick-next,
+.slick-prev
+  position absolute
+  display block
+  padding 0
+  z-index 1
+  height size-calc(3)
+  width size-calc(3)
+  font-size 0
+  border none
+  top 50%
+  margin-top -12px
+  background-color transparent
+  background-image url('../images/arrow.svg')
+  background-size 20px 20px
+  background-position center center
+  background-repeat no-repeat
+  transition all 100ms easing
+  will-change all
+
+  &.slick-disabled
+    opacity 0.2
+
+    &:active
+      transform none
+
+  &:focus
+    outline 0
+
+.slick-prev
+  left size-calc(3)
+  transform rotate(180deg)
+
+  &:active
+    transform rotate(180deg) translateX(4px)
+
+  &.slick-disabled:active
+
+    transform rotate(180deg)
+.slick-next
+  right size-calc(3)
+
+  &:active
+    transform translateX(4px)
+
+.slick-list
+.slick-track
+  height 100%
+
+.sliderImage
+  height 100%
+  width 100%
+  background-size contain
+  background-position center center
+  background-repeat no-repeat
+  text-align center
+
+  img
+    display inline-block
