@@ -1,0 +1,144 @@
+flexbox(value)
+  if value == inline-flex
+    display -webkit-inline-flex
+    display -ms-inline-flexbox
+    display inline-flex
+  else if value == flex
+    display -webkit-flex
+    display -ms-flexbox
+    display flex
+
+flex(value)
+  -webkit-flex value
+  -ms-flex value
+  flex value
+
+flex-basis(value)
+  -webkit-flex-basis value
+  -ms-flex-basis value
+  flex-basis value
+
+flex-grow(value)
+  -webkit-flex-grow value
+  -ms-flex-grow value
+  flex-grow value
+
+flex-shrink(value)
+  -webkit-flex-shrink value
+  -ms-flex-shrink value
+  flex-shrink value
+
+flex-direction(value)
+  -webkit-flex-direction value
+  -ms-flex-direction value
+  flex-direction value
+
+flex-wrap(value)
+  -webkit-flex-wrap value
+  -ms-flex-wrap value
+  flex-wrap value
+
+flex-flow(value...)
+  -webkit-flex-flow value
+  -ms-flex-flow value
+  flex-flow value
+
+justify-content(value)
+  if value == start || value == end
+    -webkit-justify-content flex-+value
+    -ms-flex-pack value
+    justify-content flex-+value
+  else if value == center
+    -webkit-justify-content value
+    -ms-flex-pack value
+    justify-content value
+  else if value == space-between
+    -webkit-justify-content value
+    -ms-flex-pack justify
+    justify-content value
+  else if value == space-around
+    -webkit-justify-content value
+    -ms-flex-pack distribute
+    justify-content value
+
+align-content(value)
+  if value == space-around
+    -webkit-align-content value
+    -ms-flex-line-pack distribute
+    align-content value
+  else if value == space-between
+    -webkit-align-content value
+    -ms-flex-line-pack justify
+    align-content value
+  else if value == end or value == start
+    -webkit-align-content flex-+value
+    -ms-flex-line-pack value
+    align-content flex-+value
+  else
+    -webkit-align-content value
+    -ms-flex-line-pack value
+    align-content value
+
+align-items(value)
+  if value == start or value == end
+    -webkit-align-items flex-+value
+    -ms-flex-align value
+    align-items flex-+value
+  else
+    -webkit-align-items value
+    -ms-flex-align value
+    align-items value
+
+align-self(value)
+  if value == start or value == end
+    -webkit-align-self flex-+value
+    -ms-flex-item-align value
+    align-self flex-+value
+  else
+    -webkit-align-self value
+    -ms-flex-item-align value
+    align-self value
+
+order(value)
+  -ms-flex-order value
+  -webkit-order value
+  order value
+
+selectionColor = grey-90
+
+textShadowToCropUnderline(color)
+  text-shadow .03em 0 color, -.03em 0 color, 0 .03em color, 0 -.03em color, .06em 0 color, -.06em 0 color, .09em 0 color, -.09em 0 color, .12em 0 color, -.12em 0 color, .15em 0 color, -.15em 0 color
+
+linkUnderlines(backgroundColor, color)
+  color color
+  text-decoration none
+  textShadowToCropUnderline backgroundColor
+  background-image linear-gradient(backgroundColor, backgroundColor), linear-gradient(backgroundColor, backgroundColor), linear-gradient(darken(color,40%), darken(color,40%))
+  background-size .05em 1px, .05em 1px, 1px 1px
+  background-repeat no-repeat, no-repeat, repeat-x
+  background-position 20% 97%, 100% 97%, 20% 97%
+
+  &::selection
+    textShadowToCropUnderline selectionColor
+    background selectionColor
+
+  &::-moz-selection
+    textShadowToCropUnderline selectionColor
+    background selectionColor
+
+  &:before, &:after, *, *:before, *:after
+    text-shadow none
+
+  &:visited
+    color color
+
+size-calc(value)
+  base-unit * value
+
+rem-calc(value)
+  u = unit(value);
+  if (u is 'rem') {
+    return unit(value, u);
+  } else {
+    return unit(value / base-font-size, 'rem')
+  }

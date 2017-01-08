@@ -1,0 +1,408 @@
+iconEasing = cubic-bezier(0.77,0.0,0.175,1.0)
+
+// ViewToggleIcon Animation
+
+@keyframes firstGrid
+  0%
+    transform translateY(0)
+
+  30%
+    transform translateY(0px)
+
+  58%
+    transform translateY(-24px)
+
+  100%
+    transform translateY(-24px)
+
+@keyframes secondGrid
+  0%
+    transform translateY(24px)
+
+  30%
+    transform translateY(24px)
+
+  38%
+    transform translateY(24px)
+
+  58%
+    transform translateY(0)
+
+  100%
+    transform translateY(0)
+
+@keyframes galleryFirstSlide
+  0%
+    transform translateX(0)
+
+  30%
+    transform translateX(0)
+
+  58%
+    transform translateX(-24px)
+
+  100%
+    transform translateX(-24px)
+
+
+@keyframes gallerySecondSlide
+  0%
+    transform translateX(0)
+
+  28%
+    transform translateX(0)
+
+  58%
+    transform translateX(-24px)
+
+  60%
+    transform translateX(-24px)
+
+  100%
+    transform translateX(-48px)
+
+@keyframes galleryThirdSlide
+  0%
+    transform translateX(0)
+
+  28%
+    transform translateX(0)
+
+  58%
+    transform translateX(0)
+
+  100%
+    transform translateX(-24px)
+
+
+// PhotoInfoIcon Animation
+
+@keyframes iconToListDot
+  0%
+    transform translateX(4px)
+
+  50%, 100%
+    transform translateX(0px)
+
+@keyframes iconToList1
+  0%
+    width 2px
+    transform translateX(-1px)
+
+  50%, 100%
+    width 5px
+    transform translateX(0)
+
+@keyframes iconToList2
+  0%
+    width 2px
+    height 6px
+    transform translateX(-2px)
+
+  50%, 100%
+    width 4px
+    height 2px
+    transform translateX(0)
+
+@keyframes iconToList3
+  0%
+    width 2px
+
+  50%, 100%
+    width 6px
+
+
+// CloseViewIcon Animation
+
+@keyframes closing
+  0%
+    transform translate(10px, 10px) rotate(45deg) translate(-10px, -10px)
+
+  50%
+    transform translate(10px, 10px) rotate(90deg) translate(-10px, -10px)
+
+  51%
+    height 24px
+
+  90%
+    height 0
+    transform translate(0, 10px) rotate(90deg) translate(-10px, -10px)
+
+  100%
+    height 24px
+    transform translate(10px, 10px) rotate(45deg) translate(-10px, -10px)
+
+@keyframes closing2
+  0%
+    transform translate(10px, 10px) rotate(-45deg) translate(-10px, -10px)
+
+  50%
+    transform translate(10px, 10px) rotate(-90deg) translate(-10px, -10px)
+
+  51%
+    height 24px
+
+  90%
+    height 0
+    transform translate(0, 10px) rotate(-90deg) translate(-10px, -10px)
+
+  100%
+    height 24px
+    transform translate(10px, 10px) rotate(-45deg) translate(-10px, -10px)
+
+svg
+  cursor pointer
+
+  &.viewToggleIcon
+    rect
+      transition 500ms iconEasing
+      will-change transform
+
+    &.gridMode
+      #firstGrid
+        rect.frame
+          width 18px
+          height 18px
+
+        rect.thridSlide
+          width 18px
+          height 10px
+          x 24
+          y 4
+
+      #firstGrid
+      #secondGrid
+        rect.tl
+        rect.br
+          width 18px
+          height 10px
+
+        rect.tr
+        rect.bl
+          width 10px
+          height 18px
+
+        rect.tl
+          y 4
+          x 0
+
+        rect.tr
+          x 28
+          y 0
+
+        rect.bl
+          x 0
+          y 24
+
+        rect.br
+          x 24
+          y 24
+
+      &:hover
+        #firstGrid
+        #secondGrid
+          rect
+            animation firstGrid 3s iconEasing infinite
+
+          rect.frame
+          rect.tl
+          rect.br
+            width 7px
+            height 5px
+
+          rect.tr
+          rect.bl
+            width 7px
+            height 9px
+
+          rect.frame
+            x 0
+            y 0
+
+          rect.tl
+            y 0
+            x 0
+
+          rect.tr
+            x 11
+            y 0
+            animation-delay 50ms
+
+          rect.bl
+            x 0
+            y 9
+            animation-delay 100ms
+
+          rect.br
+            x 11
+            y 13
+            animation-delay 150ms
+
+          rect.thridSlide
+            width 18px
+            height 10px
+            x 24
+            y 4
+
+        #secondGrid
+          rect
+            animation secondGrid 3s iconEasing infinite
+
+    &.galleryMode
+      #firstGrid
+        rect.frame
+        rect.tl
+        rect.br
+          width 7px
+          height 5px
+
+        rect.tr
+        rect.bl
+          width 7px
+          height 9px
+
+        rect.frame
+          x 0
+          y 0
+
+        rect.tl
+          y 0
+          x 0
+
+        rect.tr
+          x 11
+          y 0
+
+        rect.bl
+          x 0
+          y 9
+
+        rect.br
+          x 11
+          y 13
+
+        rect.thridSlide
+          width 18px
+          height 10px
+          x 24
+          y 4
+
+      &:hover
+        #firstGrid
+          rect.frame
+            width 18px
+            height 18px
+
+          rect.tl
+          rect.br
+            width 18px
+            height 10px
+
+          rect.tr
+          rect.bl
+            width 10px
+            height 18px
+
+          rect.tl
+            y 4
+            animation galleryFirstSlide 3.5s iconEasing infinite
+
+          rect.tr
+            x 28
+            animation gallerySecondSlide 3.5s iconEasing infinite
+
+          rect.bl
+            x 0
+            y 24
+
+          rect.br
+            x 24
+            y 24
+
+          rect.thridSlide
+            width 18px
+            height 10px
+            animation galleryThirdSlide 3.5s iconEasing infinite
+            y 4
+
+      #secondGrid
+        opacity 0
+
+  &.photoInfoIcon
+    &:hover
+      rect.move
+        animation-duration 1s
+        animation-timing-function iconEasing
+        animation-direction alternate
+        animation-iteration-count infinite
+        animation-play-state running
+
+        &.ts,
+        &.ms,
+        &.bs
+          animation-name iconToListDot
+
+        &.tl
+          animation-name iconToList1
+
+        &.ms
+          animation-delay 50ms
+
+        &.ml
+          animation-name iconToList2
+          animation-delay 50ms
+
+        &.bs
+          animation-delay 100ms
+
+        &.bl
+          animation-name iconToList3
+          animation-delay 100ms
+
+    rect
+      &.ts
+        width 2px
+        height 2px
+        x 5
+        y 5
+        transform translateX(4px)
+
+      &.tl
+        width 2px
+        height 2px
+        x 10
+        y 5
+        transform translateX(-1px)
+
+      &.ms
+        width 2px
+        height 2px
+        x 5
+        y 9
+        transform translateX(4px)
+
+      &.ml
+        width 2px
+        height 6px
+        x 11
+        y 9
+        transform translateX(-2px)
+
+      &.bs
+        width 2px
+        height 2px
+        x 5
+        y 13
+        transform translateX(4px)
+
+      &.bl
+        width 2px
+        height 2px
+        x 9
+        y 13
+
+  &.closeViewIcon
+    transition 500ms iconEasing
+    
+    &:hover
+      transform rotate(90deg)
