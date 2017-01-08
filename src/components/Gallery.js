@@ -11,7 +11,7 @@ class Gallery extends React.Component {
 
   getChildContext() {
     return {
-      mode: "galleryMode"
+      mode: "gridMode"
     };
   }
 

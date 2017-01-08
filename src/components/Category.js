@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
+import {Link} from 'react-router'
 
 class Category extends React.Component {
   constructor() {
     super();
-    this.goToGallery = this.goToGallery.bind(this);
     this.onMouseOver = this.onMouseOver.bind(this)
     this.onMouseOut = this.onMouseOut.bind(this)
     this.state = {
@@ -21,20 +21,16 @@ class Category extends React.Component {
     this.setState({ isHovering: false })
   }
 
-  goToGallery() {
-    console.log('you changed the url');
-    this.context.router.transitionTo(this.props.category)
-  }
-
   render() {
     return (
       <li className="category"
           onMouseOver={this.onMouseOver}
           onMouseOut={this.onMouseOut}>
         <h1 id="{this.props.category}" >
-          <button onClick={this.goToGallery}>
+          <Link
+            to={`/${this.props.category}`}>
             {this.props.category}
-          </button>
+          </Link>
           <span className="count">23</span>
         </h1>
       </li>

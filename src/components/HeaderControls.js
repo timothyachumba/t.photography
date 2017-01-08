@@ -1,7 +1,7 @@
 import React from 'react'
-
+import {Link} from 'react-router'
 import ViewToggleIcon from './ViewToggleIcon'
-import PhotoInfoIcon from './PhotoInfoIcon'
+// import PhotoInfoIcon from './PhotoInfoIcons
 import CloseViewIcon from './CloseViewIcon'
 
 class HeaderControls extends React.Component {
@@ -10,11 +10,15 @@ class HeaderControls extends React.Component {
     return (
       <div className="headerControls">
         <ViewToggleIcon/>
-        <PhotoInfoIcon />
-        <CloseViewIcon />
+        <Link
+          to={`/`}>
+          <CloseViewIcon />
+        </Link>
+
       </div>
     );
   }
 }
+
 
 export default HeaderControls;
