@@ -51,23 +51,22 @@ class ImageSlider extends React.Component {
         <div style={this.state.progressStyle} className="progressBar"></div>
         <Slider {...settings}>
           <div className="sliderImage">
-            <img src={imageOne} className="logo" height="100%" width="auto" alt="logo" />
-          {this.progressLength}
+            <img src={imageOne} className="logo" height="100%" width="auto"/>
           </div>
           <div className="sliderImage">
-            <img src={imageTwo} className="logo" height="100%" width="auto" alt="logo" />
+            <img src={imageTwo} className="logo" height="100%" width="auto"/>
           </div>
           <div className="sliderImage">
-            <img src={imageThree} className="logo" height="100%" width="auto" alt="logo" />
+            <img src={imageThree} className="logo" height="100%" width="auto"/>
           </div>
           <div className="sliderImage">
-            <img src={imageFour} className="logo" height="100%" width="auto" alt="logo" />
+            <img src={imageFour} className="logo" height="100%" width="auto"/>
           </div>
           <div className="sliderImage">
-            <img src={imageFive} className="logo" height="100%" width="auto" alt="logo" />
+            <img src={imageFive} className="logo" height="100%" width="auto"/>
           </div>
           <div className="sliderImage">
-            <img src={imageSix} className="logo" height="100%" width="auto" alt="logo" />
+            <img src={imageSix} className="logo" height="100%" width="auto"/>
           </div>
         </Slider>
       </div>
