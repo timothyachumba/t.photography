@@ -10,8 +10,8 @@ const Header = (props) => {
       <div className="logo">
         <img src={logo} className="logo" alt="logo" />
       </div>
-      <Match pattern="/:category" component={CategoryDetails} />
       <Match pattern="/:category" component={HeaderControls} />
+      <Match pattern="/:category" component={CategoryDetails} />
     </div>
   );
 
