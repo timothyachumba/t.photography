@@ -14,7 +14,6 @@ class Categories extends React.Component {
   }
 
   onMouseOver(currentCategory) {
-    console.log('currentCategory: ', currentCategory)
     this.setState({ isHovering: true })
   }
 
@@ -35,25 +34,25 @@ class Categories extends React.Component {
         <nav className="menu">
           <ul className="categories">
             <Category
-                category="people"
-                parentMouseOver={this.onMouseOver}
-                parentMouseOut={this.onMouseOut}/>
+              category="people"
+              parentMouseOver={this.onMouseOver}
+              parentMouseOut={this.onMouseOut}/>
             <Category
-                category="street"
-                parentMouseOver={this.onMouseOver}
-                parentMouseOut={this.onMouseOut}/>
+              category="street"
+              parentMouseOver={this.onMouseOver}
+              parentMouseOut={this.onMouseOut}/>
             <Category
-                category="fashion"
-                parentMouseOver={this.onMouseOver}
-                parentMouseOut={this.onMouseOut}/>
+              category="fashion"
+              parentMouseOver={this.onMouseOver}
+              parentMouseOut={this.onMouseOut}/>
             <Category
-                category="architecture"
-                parentMouseOver={this.onMouseOver}
-                parentMouseOut={this.onMouseOut}/>
+              category="architecture"
+              parentMouseOver={this.onMouseOver}
+              parentMouseOut={this.onMouseOut}/>
             <Category
-                category="travel"
-                parentMouseOver={this.onMouseOver}
-                parentMouseOut={this.onMouseOut}/>
+              category="travel"
+              parentMouseOver={this.onMouseOver}
+              parentMouseOut={this.onMouseOut}/>
           </ul>
         </nav>
       </div>

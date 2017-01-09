@@ -17,15 +17,16 @@ class Category extends React.Component {
   }
 
   onMouseOut() {
-    this.props.parentMouseOut && this.props.parentMouseOut(this.props.category)
+    this.props.parentMouseOut &&
+    this.props.parentMouseOut(this.props.category)
     this.setState({ isHovering: false })
   }
 
   render() {
     return (
       <li className="category"
-          onMouseOver={this.onMouseOver}
-          onMouseOut={this.onMouseOut}>
+        onMouseOver={this.onMouseOver}
+        onMouseOut={this.onMouseOut}>
         <h1 id="{this.props.category}" >
           <Link
             to={`/${this.props.category}`}>

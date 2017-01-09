@@ -39,7 +39,6 @@ class Grid extends React.Component {
           disableImagesLoaded={false}
           updateOnEachImageLoad={false}
         >
-
           <img
             src={imageOne}
             className="gridImage"
