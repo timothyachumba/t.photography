@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
 import ViewToggleIcon from './ViewToggleIcon'
-// import PhotoInfoIcon from './PhotoInfoIcons
 import CloseViewIcon from './CloseViewIcon'
 
 class HeaderControls extends React.Component {
