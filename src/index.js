@@ -1,21 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter, Match, Miss } from 'react-router'
+import { BrowserRouter } from 'react-router'
 
 import './styles/styles.css'
-import Home from './components/Home'
-import Gallery from './components/Gallery'
-import Grid from './components/Grid'
-import NotFound from './components/NotFound'
+import App from './components/App'
 
 const Root = () => {
   return (
     <BrowserRouter>
       <div>
-        <Match exactly pattern="/" component={Home} />
-        <Match exactly pattern="/:category" component={Gallery} />
-        <Match exactly pattern="/:category/grid" component={Grid} />
-        <Miss component={NotFound} />
+        <App />
       </div>
     </BrowserRouter>
   )

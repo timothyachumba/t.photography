@@ -27,10 +27,10 @@ class Category extends React.Component {
       <li className="category"
         onMouseOver={this.onMouseOver}
         onMouseOut={this.onMouseOut}>
-        <h1 id="{this.props.category}" >
+        <h1 id={this.props.details.category} >
           <Link
-            to={`/${this.props.category}`}>
-            {this.props.category}
+            to={`/${this.props.details.category}`}>
+            {this.props.details.category}
           </Link>
           <span className="count">23</span>
         </h1>

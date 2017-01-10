@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames'
 import Category from './Category'
 import Teaser from './Teaser'
+import photos from '../photos'
 
 class Categories extends React.Component {
   constructor() {
@@ -9,7 +10,8 @@ class Categories extends React.Component {
     this.onMouseOver = this.onMouseOver.bind(this)
     this.onMouseOut = this.onMouseOut.bind(this)
     this.state = {
-      isHovering: false
+      isHovering: false,
+      photos: {}
     }
   }
 
@@ -21,7 +23,17 @@ class Categories extends React.Component {
     this.setState({ isHovering: false })
   }
 
+  componentWillMount() {
+    this.setState({
+      photos: photos
+    })
+  }
+
   render() {
+
+    console.log(this.state.photos);
+
+    console.log(this.state.photos.category);
 
     const teaserClass = classNames('teaser', this.props.className, {
       'grow': this.state.isHovering,
@@ -33,31 +45,25 @@ class Categories extends React.Component {
         <Teaser teaserClass={teaserClass}/>
         <nav className="menu">
           <ul className="categories">
-            <Category
-              category="people"
-              parentMouseOver={this.onMouseOver}
-              parentMouseOut={this.onMouseOut}/>
-            <Category
-              category="street"
-              parentMouseOver={this.onMouseOver}
-              parentMouseOut={this.onMouseOut}/>
-            <Category
-              category="fashion"
-              parentMouseOver={this.onMouseOver}
-              parentMouseOut={this.onMouseOut}/>
-            <Category
-              category="architecture"
-              parentMouseOver={this.onMouseOver}
-              parentMouseOut={this.onMouseOut}/>
-            <Category
-              category="travel"
-              parentMouseOver={this.onMouseOver}
-              parentMouseOut={this.onMouseOut}/>
+            {
+              Object
+                .keys(this.state.photos)
+                .map(key => <Category
+                  key={key}
+                  details={this.state.photos[key]}
+                  parentMouseOver={this.onMouseOver}
+                  parentMouseOut={this.onMouseOut} />)
+            }
+
           </ul>
         </nav>
       </div>
     );
   }
+}
+
+Categories.contextTypes = {
+  photos: React.PropTypes.object
 }
 
 export default Categories;
