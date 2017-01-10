@@ -6,13 +6,33 @@ import Photo from './Photo'
 class PhotoSlider extends React.Component {
 
   constructor() {
-    super();
+    super()
+    this.keyboardNext = this.keyboardNext.bind(this)
+    this.keyboardPrevious = this.keyboardPrevious.bind(this)
     this.state = {
       progressStyle: {
         width: 0
       }
     }
   }
+
+  keyboardNext() {
+    if(event.keyCode === 39){
+      this.slider.slickNext()
+    }
+  }
+
+  keyboardPrevious(event) {
+    if(event.keyCode === 37){
+      this.slider.slickPrev()
+    }
+  }
+
+  componentWillMount(){
+    window.addEventListener("keydown", this.keyboardPrevious, false)
+    window.addEventListener("keydown", this.keyboardNext, false)
+  }
+
 
   render() {
     // var currentProgressLength = 0;
@@ -43,7 +63,7 @@ class PhotoSlider extends React.Component {
     return (
       <div>
         <div style={this.state.progressStyle} className="progressBar"></div>
-        <Slider {...settings}>
+        <Slider ref={c => this.slider = c } {...settings}>
           {
             Object
               .keys(this.context.photosByCategories[this.context.category])

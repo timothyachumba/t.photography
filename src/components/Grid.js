@@ -1,7 +1,7 @@
 import React from 'react'
-import Masonry from 'react-masonry-component'
+
 import Header from './Header'
-import Photo from './Photo'
+import PhotoGrid from './PhotoGrid'
 
 class Grid extends React.Component {
 
@@ -13,49 +13,28 @@ class Grid extends React.Component {
   getChildContext() {
     return {
       mode: "galleryMode",
+      category: this.props.params.category
     };
   }
 
 
   render() {
-    const masonryOptions = {
-      transitionDuration: 0
-    };
     return (
       <div className="App">
 
         <Header/>
 
-        <Masonry
-          className={'gridContainer'}
-          elementType={'div'}
-          options={masonryOptions}
-          disableImagesLoaded={false}
-          updateOnEachImageLoad={false}
-        >
-          {
-            Object
-              .keys(this.context.photosByCategories[this.props.params.category])
-              .map(photoName => <Photo
-                key={photoName}
-                details={this.context.photosByCategories[this.props.params.category][photoName]}
-                height=""
-                alt=""
-                width="auto" />)
-          }
-        </Masonry>
+        <PhotoGrid />
 
       </div>
     );
   }
 }
 
-Grid.childContextTypes = {
-  mode: React.PropTypes.string
-};
 
-Grid.contextTypes = {
-  photosByCategories: React.PropTypes.object
-}
+Grid.childContextTypes = {
+  mode: React.PropTypes.string,
+  category: React.PropTypes.string
+};
 
 export default Grid;
