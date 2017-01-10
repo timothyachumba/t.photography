@@ -1,13 +1,7 @@
 import React from 'react'
 import Masonry from 'react-masonry-component'
 import Header from './Header'
-
-import imageOne from '../images/image.png'
-import imageTwo from '../images/image2.png'
-import imageThree from '../images/image3.png'
-import imageFour from '../images/image4.png'
-import imageFive from '../images/image5.png'
-import imageSix from '../images/image6.png'
+import Photo from './Photo'
 
 class Grid extends React.Component {
 
@@ -18,7 +12,7 @@ class Grid extends React.Component {
 
   getChildContext() {
     return {
-      mode: "galleryMode"
+      mode: "galleryMode",
     };
   }
 
@@ -39,36 +33,16 @@ class Grid extends React.Component {
           disableImagesLoaded={false}
           updateOnEachImageLoad={false}
         >
-          <img
-            src={imageOne}
-            className="gridImage"
-            width="auto"
-            alt=""/>
-          <img
-            src={imageTwo}
-            className="gridImage"
-            width="auto"
-            alt=""/>
-          <img
-            src={imageThree}
-            className="gridImage"
-            width="auto"
-            alt=""/>
-          <img
-            src={imageFour}
-            className="gridImage"
-            width="auto"
-            alt=""/>
-          <img
-            src={imageFive}
-            className="gridImage"
-            width="auto"
-            alt=""/>
-          <img
-            src={imageSix}
-            className="gridImage"
-            width="auto"
-            alt=""/>
+          {
+            Object
+              .keys(this.context.photosByCategories[this.props.params.category])
+              .map(photoName => <Photo
+                key={photoName}
+                details={this.context.photosByCategories[this.props.params.category][photoName]}
+                height=""
+                alt=""
+                width="auto" />)
+          }
         </Masonry>
 
       </div>
@@ -79,5 +53,9 @@ class Grid extends React.Component {
 Grid.childContextTypes = {
   mode: React.PropTypes.string
 };
+
+Grid.contextTypes = {
+  photosByCategories: React.PropTypes.object
+}
 
 export default Grid;

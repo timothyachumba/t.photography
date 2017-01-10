@@ -4,11 +4,13 @@ import ViewToggleIcon from './ViewToggleIcon'
 import CloseViewIcon from './CloseViewIcon'
 
 class HeaderControls extends React.Component {
-
   render() {
     return (
       <div className="headerControls">
-        <ViewToggleIcon/>
+        <Link to={`/fashion/grid`}>
+          <ViewToggleIcon/>
+        </Link>
+
         <Link
           to={`/`}>
           <CloseViewIcon />
@@ -18,6 +20,7 @@ class HeaderControls extends React.Component {
     );
   }
 }
+
 
 
 export default HeaderControls;

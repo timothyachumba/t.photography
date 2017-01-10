@@ -7,7 +7,7 @@ class Category extends React.Component {
     this.onMouseOver = this.onMouseOver.bind(this)
     this.onMouseOut = this.onMouseOut.bind(this)
     this.state = {
-      isHovering: false
+      isHovering: false,
     }
   }
 
@@ -27,10 +27,10 @@ class Category extends React.Component {
       <li className="category"
         onMouseOver={this.onMouseOver}
         onMouseOut={this.onMouseOut}>
-        <h1 id={this.props.details.category} >
+        <h1 id={this.props.categoryName} >
           <Link
-            to={`/${this.props.details.category}`}>
-            {this.props.details.category}
+            to={`/${this.props.categoryName}`}>
+            {this.props.categoryName}
           </Link>
           <span className="count">23</span>
         </h1>

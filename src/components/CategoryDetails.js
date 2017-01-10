@@ -5,11 +5,16 @@ class CategoryDetails extends React.Component {
   render() {
     return (
       <div className="categoryDetails">
-        <span className="categoryName">Fashion/</span>
-        <span className="categorySection">Odeur Show</span>
+        <span className="categoryName">{this.context.category}/</span>
+        <span className="categorySection">All</span>
       </div>
     );
   }
 }
+
+CategoryDetails.contextTypes = {
+  category: React.PropTypes.string
+}
+
 
 export default CategoryDetails;

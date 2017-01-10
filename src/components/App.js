@@ -14,15 +14,31 @@ class App extends React.Component {
     super();
 
     this.state = {
-      photos: {}
+      photos: photos
     }
 
   }
 
+  categoiesPhotos() {
+    var photos = this.state.photos
+    this.photosByCategories = Object.keys(photos).reduce(function(prev, curr) {
+      var obj = prev;
+      var category = photos[curr].category;
+      obj[category] = obj[category] || {};
+      obj[category][curr] = photos[curr];
+      return obj;
+    }, {});
+
+  }
+
   componentWillMount() {
-    this.setState({
-      photos: photos
-    })
+    this.categoiesPhotos()
+  }
+
+  getChildContext(photosByCategories) {
+    return {
+      photosByCategories: this.photosByCategories
+    };
   }
 
   render() {
@@ -39,7 +55,7 @@ class App extends React.Component {
 }
 
 App.childContextTypes = {
-  photos: React.PropTypes.object
+  photosByCategories: React.PropTypes.object
 };
 
 export default App;

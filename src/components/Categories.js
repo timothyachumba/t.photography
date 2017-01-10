@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames'
 import Category from './Category'
 import Teaser from './Teaser'
-import photos from '../photos'
 
 class Categories extends React.Component {
   constructor() {
@@ -11,11 +10,10 @@ class Categories extends React.Component {
     this.onMouseOut = this.onMouseOut.bind(this)
     this.state = {
       isHovering: false,
-      photos: {}
     }
   }
 
-  onMouseOver(currentCategory) {
+  onMouseOver() {
     this.setState({ isHovering: true })
   }
 
@@ -23,17 +21,7 @@ class Categories extends React.Component {
     this.setState({ isHovering: false })
   }
 
-  componentWillMount() {
-    this.setState({
-      photos: photos
-    })
-  }
-
   render() {
-
-    console.log(this.state.photos);
-
-    console.log(this.state.photos.category);
 
     const teaserClass = classNames('teaser', this.props.className, {
       'grow': this.state.isHovering,
@@ -47,10 +35,11 @@ class Categories extends React.Component {
           <ul className="categories">
             {
               Object
-                .keys(this.state.photos)
-                .map(key => <Category
-                  key={key}
-                  details={this.state.photos[key]}
+                .keys(this.context.photosByCategories)
+                .map(categoryName => <Category
+                  key={categoryName}
+                  details={this.context.photosByCategories[categoryName]}
+                  categoryName={categoryName}
                   parentMouseOver={this.onMouseOver}
                   parentMouseOut={this.onMouseOut} />)
             }
@@ -63,7 +52,7 @@ class Categories extends React.Component {
 }
 
 Categories.contextTypes = {
-  photos: React.PropTypes.object
+  photosByCategories: React.PropTypes.object
 }
 
 export default Categories;
