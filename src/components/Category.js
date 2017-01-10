@@ -7,30 +7,31 @@ class Category extends React.Component {
     this.onMouseOver = this.onMouseOver.bind(this)
     this.onMouseOut = this.onMouseOut.bind(this)
     this.state = {
-      isHovering: false
+      isHovering: false,
     }
   }
 
   onMouseOver() {
-    this.props.parentMouseOver && this.props.parentMouseOver(this.props.category)
+    this.props.parentMouseOver && this.props.parentMouseOver(this.props.categoryName)
     this.setState({ isHovering: true })
   }
 
   onMouseOut() {
     this.props.parentMouseOut &&
-    this.props.parentMouseOut(this.props.category)
+    this.props.parentMouseOut(this.props.categoryName)
     this.setState({ isHovering: false })
   }
 
   render() {
     return (
-      <li className="category"
-        onMouseOver={this.onMouseOver}
-        onMouseOut={this.onMouseOut}>
-        <h1 id="{this.props.category}" >
+      <li className="category">
+        <h1
+          id={this.props.categoryName}
+          onMouseOver={this.onMouseOver}
+          onMouseOut={this.onMouseOut}>
           <Link
-            to={`/${this.props.category}`}>
-            {this.props.category}
+            to={`/${this.props.categoryName}`}>
+            {this.props.categoryName}
           </Link>
           <span className="count">23</span>
         </h1>
