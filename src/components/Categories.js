@@ -10,21 +10,28 @@ class Categories extends React.Component {
     this.onMouseOut = this.onMouseOut.bind(this)
     this.state = {
       isHovering: false,
+      currentCategory: ''
     }
   }
 
-  onMouseOver() {
-    this.setState({ isHovering: true })
+  onMouseOver(currentCategory) {
+    this.setState({ isHovering: true, currentCategory: currentCategory})
   }
 
   onMouseOut() {
-    this.setState({ isHovering: false })
+    this.setState({ isHovering: false, currentCategory: '' })
+  }
+
+  getChildContext(currentCategory) {
+    return {
+      currentCategory: currentCategory
+    };
   }
 
   render() {
 
     const teaserClass = classNames('teaser', this.props.className, {
-      'grow': this.state.isHovering,
+      [`grow ${this.state.currentCategory}`]: this.state.isHovering,
       '': !this.state.isHovering
     });
 
@@ -35,10 +42,10 @@ class Categories extends React.Component {
           <ul className="categories">
             {
               Object
-                .keys(this.context.photosByCategories)
+                .keys(this.context.categories)
                 .map(categoryName => <Category
                   key={categoryName}
-                  details={this.context.photosByCategories[categoryName]}
+                  details={this.context.categories[categoryName]}
                   categoryName={categoryName}
                   parentMouseOver={this.onMouseOver}
                   parentMouseOut={this.onMouseOut} />)
@@ -52,7 +59,11 @@ class Categories extends React.Component {
 }
 
 Categories.contextTypes = {
-  photosByCategories: React.PropTypes.object
+  categories: React.PropTypes.object
 }
+
+Categories.childContextTypes = {
+  currentCategory: React.PropTypes.object,
+};
 
 export default Categories;

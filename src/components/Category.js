@@ -12,22 +12,23 @@ class Category extends React.Component {
   }
 
   onMouseOver() {
-    this.props.parentMouseOver && this.props.parentMouseOver(this.props.category)
+    this.props.parentMouseOver && this.props.parentMouseOver(this.props.categoryName)
     this.setState({ isHovering: true })
   }
 
   onMouseOut() {
     this.props.parentMouseOut &&
-    this.props.parentMouseOut(this.props.category)
+    this.props.parentMouseOut(this.props.categoryName)
     this.setState({ isHovering: false })
   }
 
   render() {
     return (
-      <li className="category"
-        onMouseOver={this.onMouseOver}
-        onMouseOut={this.onMouseOut}>
-        <h1 id={this.props.categoryName} >
+      <li className="category">
+        <h1
+          id={this.props.categoryName}
+          onMouseOver={this.onMouseOver}
+          onMouseOut={this.onMouseOut}>
           <Link
             to={`/${this.props.categoryName}`}>
             {this.props.categoryName}

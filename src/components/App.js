@@ -3,6 +3,7 @@ import { Match, Miss } from 'react-router'
 
 import '../styles/styles.css'
 import photos from '../photos'
+import categories from '../categories'
 import Home from './Home'
 import Gallery from './Gallery'
 import Grid from './Grid'
@@ -14,30 +15,16 @@ class App extends React.Component {
     super();
 
     this.state = {
-      photos: photos
+      photos: photos,
+      categories: categories
     }
 
   }
 
-  categoiesPhotos() {
-    var photos = this.state.photos
-    this.photosByCategories = Object.keys(photos).reduce(function(prev, curr) {
-      var obj = prev;
-      var category = photos[curr].category;
-      obj[category] = obj[category] || {};
-      obj[category][curr] = photos[curr];
-      return obj;
-    }, {});
-
-  }
-
-  componentWillMount() {
-    this.categoiesPhotos()
-  }
-
-  getChildContext(photosByCategories) {
+  getChildContext() {
     return {
-      photosByCategories: this.photosByCategories
+      categories: categories,
+      photos: photos
     };
   }
 
@@ -55,7 +42,8 @@ class App extends React.Component {
 }
 
 App.childContextTypes = {
-  photosByCategories: React.PropTypes.object
+  categories: React.PropTypes.object,
+  photos: React.PropTypes.object
 };
 
 export default App;
