@@ -37,5 +37,33 @@ module.exports = {
 
   photo0010: {
     image: 'http://timothyachumba.com/photos/travel/0002.jpg'
+  },
+
+  photo0011: {
+    image: 'http://timothyachumba.com/photos/fashion/0003.jpg'
+  },
+
+  photo0012: {
+    image: 'http://timothyachumba.com/photos/fashion/0004.jpg'
+  },
+
+  photo0013: {
+    image: 'http://timothyachumba.com/photos/fashion/0005.jpg'
+  },
+
+  photo0014: {
+    image: 'http://timothyachumba.com/photos/fashion/0006.jpg'
+  },
+
+  photo0015: {
+    image: 'http://timothyachumba.com/photos/fashion/0007.jpg'
+  },
+
+  photo0016: {
+    image: 'http://timothyachumba.com/photos/fashion/0008.jpg'
+  },
+
+  photo0017: {
+    image: 'http://timothyachumba.com/photos/fashion/0009.jpg'
   }
 }
