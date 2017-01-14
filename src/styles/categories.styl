@@ -78,44 +78,6 @@ count = random(1, 5)
       background-repeat no-repeat
       opacity 0
 
-//     &.grow
-//       transform translateX(0)
-//       transition transform 600ms easing
-//
-//       &.people .photoBackground.people
-//         opacity 1
-//         transform scale(1.5)
-//
-//       &.street .photoBackground.street
-//         opacity 1
-//         transform scale(1.5)
-//
-//       &.fashion .photoBackground.fashion
-//         opacity   1
-//         transform scale(1.5)
-//
-//       &.architecture .photoBackground.architecture
-//         opacity 1
-//         transform scale(1.5)
-//
-//       &.travel .photoBackground.travel
-//         opacity 1
-//         transform scale(1.5)
-//
-//     .photoBackground
-//       transition opacity 600ms easing, transform 60s linear
-//       opacity 0
-//       position fixed
-//       left 0
-//       top 0
-//       bottom 0
-//       right 0
-//       height 100%
-//       width 100%
-//       background-size cover
-//       background-position center right
-
-
 @media b-sm
 
   .categoriesContainer
@@ -170,3 +132,30 @@ count = random(1, 5)
         right 0
         height 100%
         width 100%
+
+
+@media b-sm-touch
+
+  .categoriesContainer
+    .teaser
+      background transparent
+      animation none
+      width 100%
+      height 100%
+      transform translateX(20%)
+
+      &.image1 .photoBackground.people,
+      &.image2 .photoBackground.street,
+      &.image3 .photoBackground.fashion,
+      &.image4 .photoBackground.architecture,
+      &.image5 .photoBackground.travel
+        opacity 1 !important
+
+      .photoBackground
+        position absolute
+        height 100%
+        width 100%
+        background-size contain
+        background-position center center
+        background-repeat no-repeat
+        opacity 0 !important
