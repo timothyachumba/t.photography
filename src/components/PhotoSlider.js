@@ -54,9 +54,10 @@ class PhotoSlider extends React.Component {
     const settings = {
       dots: false,
       infinite: false,
-      speed: 700,
+      speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      touchThreshold: 10,
       swipe: true,
       cssEase: 'cubic-bezier(0.77,0.0,0.175,1.0)',
       afterChange: function (currentSlide, slideCounter) {
@@ -65,7 +66,7 @@ class PhotoSlider extends React.Component {
     }
 
     return (
-      <div>
+      <div className="fullHeight">
         <div style={this.state.progressStyle} className="progressBar"></div>
         <Slider ref={c => this.slider = c } {...settings}>
           {

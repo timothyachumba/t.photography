@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="fullHeight">
         <Match exactly pattern="/" component={Home} />
         <Match exactly pattern="/:category" component={Gallery} />
         <Match exactly pattern="/:category/grid" component={Grid} />
