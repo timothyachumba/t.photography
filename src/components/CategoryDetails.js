@@ -5,8 +5,7 @@ class CategoryDetails extends React.Component {
   render() {
     return (
       <div className="categoryDetails">
-        <span className="categoryName">{this.context.category}/</span>
-        <span className="categorySection">All</span>
+        <span className="categoryName">{this.context.category}</span>
       </div>
     );
   }
