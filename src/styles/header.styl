@@ -1,31 +1,34 @@
 .header
+  background white
   flexbox(flex)
   align-items(center)
-  justify-content(space-between)
   position fixed
   z-index 1
   width 100%
-  padding 24px
+  padding size-calc(2)
 
   .logo
     position relative
     z-index 1
 
   .categoryDetails
-    position absolute
-    width 100%
-    left 0
-    text-align center
+    text-align left
     font-weight bold
     line-height 1rem
-
-    .categoryName
-      opacity .2
-      text-transform capitalize
+    flex-grow(1)
+    padding 0 size-calc(2)
+    text-transform capitalize
 
   .headerControls
     position relative
     z-index 1
+    flexbox(flex)
 
-    svg
+    & > a
       margin-left size-calc(3)
+
+
+@media b-sm
+  .header
+    background transparent
+    padding size-calc(3)

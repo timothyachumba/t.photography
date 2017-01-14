@@ -6,7 +6,7 @@
   position fixed
 
 .slick-slider
-  height 100vh
+  height 100%
   padding 76px 0
 
 .slick-slide
@@ -67,13 +67,17 @@
 .slick-track
   height 100%
 
-.sliderImage
+.sliderImageContainer
   height 100%
   width 100%
-  background-size contain
-  background-position center center
-  background-repeat no-repeat
-  text-align center
+  position relative
 
-  img
-    display inline-block
+  .sliderImage
+    position absolute
+    top 0
+    bottom 0
+    left size-calc(2)
+    right @left
+    background-size contain
+    background-repeat no-repeat
+    background-position center center

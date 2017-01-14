@@ -148,180 +148,189 @@
     height 24px
     transform translate(10px, 10px) rotate(-45deg) translate(-10px, -10px)
 
-svg
+div
   cursor pointer
 
   &.viewToggleIcon
-    rect
+    position relative
+    width 20px
+    height 20px
+    overflow hidden
+
+    span
       transition 500ms easing
-      will-change transform
+      will-change transform, width, height, left, top
+      position absolute
+      box-shadow inset 0 0 0 2px black
 
     &.gridMode
       #firstGrid
-        rect.frame
-          width 18px
-          height 18px
+        span.frame
+          width 20px
+          height 20px
+          left 0px
+          top 0px
 
-        rect.thridSlide
-          width 18px
-          height 10px
-          x 24
-          y 4
+        span.thridSlide
+          width 20px
+          height 12px
+          left 24px
+          top 4px
 
       #firstGrid
       #secondGrid
-        rect.tl
-        rect.br
-          width 18px
-          height 10px
+        span.tl
+        span.br
+          width 20px
+          height 12px
 
-        rect.tr
-        rect.bl
-          width 10px
-          height 18px
+        span.tr
+        span.bl
+          width 12px
+          height 20px
 
-        rect.tl
-          y 4
-          x 0
+        span.tl
+          left 0px
+          top 4px
 
-        rect.tr
-          x 28
-          y 0
+        span.tr
+          left 28px
+          top 0px
 
-        rect.bl
-          x 0
-          y 24
+        span.bl
+          left 0px
+          top 24px
 
-        rect.br
-          x 24
-          y 24
+        span.br
+          left 24px
+          top 24px
 
       &:hover
         #firstGrid
         #secondGrid
-          rect
+          span
             animation firstGrid 3s easing infinite
 
-          rect.frame
-          rect.tl
-          rect.br
-            width 7px
-            height 5px
+          span.frame
+          span.tl
+          span.br
+            width 9px
+            height 7px
 
-          rect.tr
-          rect.bl
-            width 7px
-            height 9px
+          span.tr
+          span.bl
+            width 9px
+            height 11px
 
-          rect.frame
-            x 0
-            y 0
+          span.frame
+            left 0px
+            top 0px
 
-          rect.tl
-            y 0
-            x 0
+          span.tl
+            left 0px
+            top 0px
 
-          rect.tr
-            x 11
-            y 0
+          span.tr
+            left 11px
+            top 0px
             animation-delay 50ms
 
-          rect.bl
-            x 0
-            y 9
+          span.bl
+            left 0px
+            top 9px
             animation-delay 100ms
 
-          rect.br
-            x 11
-            y 13
+          span.br
+            left 11px
+            top 13px
             animation-delay 150ms
 
-          rect.thridSlide
+          span.thridSlide
             width 18px
             height 10px
-            x 24
-            y 4
+            left 24
+            top 4
 
         #secondGrid
-          rect
+          span
             animation secondGrid 3s easing infinite
 
     &.galleryMode
       #firstGrid
-        rect.frame
-        rect.tl
-        rect.br
-          width 7px
-          height 5px
+        span.frame
+        span.tl
+        span.br
+          width 9px
+          height 7px
 
-        rect.tr
-        rect.bl
-          width 7px
-          height 9px
+        span.tr
+        span.bl
+          width 9px
+          height 11px
 
-        rect.frame
-          x 0
-          y 0
+        span.frame
+          left 0px
+          top 0px
 
-        rect.tl
-          y 0
-          x 0
+        span.tl
+          top 0px
+          left 0px
 
-        rect.tr
-          x 11
-          y 0
+        span.tr
+          left 11px
+          top 0px
 
-        rect.bl
-          x 0
-          y 9
+        span.bl
+          left 0px
+          top 9px
 
-        rect.br
-          x 11
-          y 13
+        span.br
+          left 11px
+          top 13px
 
-        rect.thridSlide
-          width 18px
-          height 10px
-          x 24
-          y 4
+        span.thridSlide
+          width 20px
+          height 12px
+          left 24px
+          top 4px
 
       &:hover
         #firstGrid
-          rect.frame
-            width 18px
-            height 18px
+          span.frame
+            width 20px
+            height 20px
 
-          rect.tl
-          rect.br
-            width 18px
-            height 10px
+          span.tl
+          span.br
+            width 20px
+            height 12px
 
-          rect.tr
-          rect.bl
-            width 10px
-            height 18px
+          span.tr
+          span.bl
+            width 12px
+            height 20px
 
-          rect.tl
-            y 4
+          span.tl
+            top 4px
             animation galleryFirstSlide 3.5s easing infinite
 
-          rect.tr
-            x 28
+          span.tr
+            left 28px
             animation gallerySecondSlide 3.5s easing infinite
 
-          rect.bl
-            x 0
-            y 24
+          span.bl
+            left 0px
+            top 24px
 
-          rect.br
-            x 24
-            y 24
+          span.br
+            left 24px
+            top 24px
 
-          rect.thridSlide
-            width 18px
-            height 10px
+          span.thridSlide
+            width 20px
+            height 12px
             animation galleryThirdSlide 3.5s easing infinite
-            y 4
+            top 4px
 
       #secondGrid
         opacity 0
@@ -399,8 +408,8 @@ svg
         x 9
         y 13
 
-  &.closeViewIcon
-    transition 500ms easing
+svg.closeViewIcon
+  transition 500ms easing
 
-    &:hover
-      transform rotate(90deg)
+  &:hover
+    transform rotate(90deg)

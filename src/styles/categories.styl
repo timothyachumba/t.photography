@@ -6,18 +6,18 @@
     transform translateX(80px) scale(1)
 
 .categoriesContainer
-  background white
-  position absolute
   flexbox(flex)
-  align-items(center)
-  height 100vh
+  align-items(flex-end)
+  position absolute
+  background white
   width 100%
+  height 100%
+  overflow hidden
 
   .menu
     position relative
     z-index 1
-    margin-left (100%/12)*2
-    mix-blend-mode exclusion
+    margin 0 0 size-calc(5) size-calc(5)
 
     .categories
       flexbox(flex)
@@ -32,7 +32,6 @@
           display inline-block
 
           &:hover
-
             a
               text-decoration line-through
 
@@ -40,66 +39,130 @@
               opacity 1
 
           a
-            color white
+            color black
             text-decoration none
             font-weight bold
             line-height normal
             text-transform capitalize
-            padding size-calc(1) 0
+            padding 0
             display inline-block
 
           .count
+            color black
             font-size rem-calc(16)
             margin 0 0 0 size-calc(1)
             opacity 0
 
   .teaser
-    background-color black
-    width (100%/12)*9
-    will-change transform
-    animation teaser-entrance 800ms easing
-    transition transform 800ms easing
-    transform translateX(100%/12)
-    position fixed
-    top 0
-    right 0
-    bottom 0
-    z-index 0
+    position absolute
     overflow hidden
+    width 110%
+    height 100%
+    transform translateX(20%)
 
-    &.grow
-      transform translateX(0)
-      transition transform 600ms easing
-
-      &.people .photoBackground.people
-        opacity 1
-        transform scale(1.5)
-
-      &.street .photoBackground.street
-        opacity 1
-        transform scale(1.5)
-
-      &.fashion .photoBackground.fashion
-        opacity   1
-        transform scale(1.5)
-
-      &.architecture .photoBackground.architecture
-        opacity 1
-        transform scale(1.5)
-
-      &.travel .photoBackground.travel
-        opacity 1
-        transform scale(1.5)
+    &.image1 .photoBackground.people,
+    &.image2 .photoBackground.street,
+    &.image3 .photoBackground.fashion,
+    &.image4 .photoBackground.architecture,
+    &.image5 .photoBackground.travel
+      opacity 1
 
     .photoBackground
-      transition opacity 600ms easing, transform 60s linear
-      opacity 0
-      position fixed
-      left 0
-      top 0
-      bottom 0
-      right 0
+      position absolute
       height 100%
       width 100%
-      background-size cover
-      background-position center right
+      background-size contain
+      background-position center center
+      background-repeat no-repeat
+      opacity 0
+
+@media b-sm
+
+  .categoriesContainer
+    position absolute
+    align-items(center)
+
+    .menu
+      margin 0 0 0 (100%/12)*2
+      mix-blend-mode exclusion
+
+      .categories
+        .category
+          h1
+            a
+              color white
+              padding size-calc(0.5) 0
+
+            .count
+              color white
+
+    .teaser
+      background-color black
+      width (100%/12)*9
+      will-change transform
+      animation teaser-entrance 800ms easing
+      transition transform 800ms easing
+      transform translateX(100%/12)
+      top 0
+      right 0
+      bottom 0
+
+      &.grow
+        transform translateX(0)
+        transition transform 600ms easing
+
+        &.people .photoBackground.people
+        &.street .photoBackground.street,
+        &.fashion .photoBackground.fashion,
+        &.architecture .photoBackground.architecture,
+        &.travel .photoBackground.travel
+          opacity 1 !important
+          transform scale(1.5)
+
+      .photoBackground
+        opacity 0 !important
+        transition opacity 600ms easing, transform 60s linear
+        background-size cover
+        position fixed
+        left 0
+        top 0
+        bottom 0
+        right 0
+        height 100%
+        width 100%
+
+@media b-sm-touch
+
+  .categoriesContainer
+    .menu
+      mix-blend-mode normal
+
+      .categories
+        .category
+          h1
+            a
+            .count
+              color black
+
+    .teaser
+      background transparent
+      animation none
+      width 70%
+      height 100%
+      transform translateX(0)
+
+      &.image1 .photoBackground.people,
+      &.image2 .photoBackground.street,
+      &.image3 .photoBackground.fashion,
+      &.image4 .photoBackground.architecture,
+      &.image5 .photoBackground.travel
+        opacity 1 !important
+
+      .photoBackground
+        position absolute
+        height 100%
+        width 100%
+        background-size contain !important
+        background-position center center
+        background-repeat no-repeat
+        opacity 0 !important
