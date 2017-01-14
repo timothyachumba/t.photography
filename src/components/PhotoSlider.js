@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick'
 
-import Photo from './Photo'
+import PhotoBackground from './PhotoBackground'
 
 class PhotoSlider extends React.Component {
 
@@ -71,8 +71,10 @@ class PhotoSlider extends React.Component {
           {
             Object
               .keys(categories[category])
-              .map(photoName => <div className="sliderImage"><Photo
+              .map(photoName => <div className="sliderImageContainer">
+              <PhotoBackground
                 key={photoName}
+                class="sliderImage"
                 details={photos[categories[category][photoName]]}
                 height="100%"
                 alt=""
