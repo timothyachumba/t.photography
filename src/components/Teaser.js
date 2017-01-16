@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import PhotoBackground from './PhotoBackground'
 
 class Teaser extends React.Component {
