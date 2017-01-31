@@ -14,8 +14,6 @@ class App extends React.Component {
     super();
 
     this.state = {
-      photos: photos,
-      categories: categories,
       pictures: pictures
     }
 
