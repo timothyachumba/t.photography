@@ -35,8 +35,6 @@ class Categories extends React.Component {
       '': !this.state.isHovering
     });
 
-    console.log(this.context.pictures)
-
     return (
       <div className="categoriesContainer">
         <Teaser teaserClass={teaserClass}/>
