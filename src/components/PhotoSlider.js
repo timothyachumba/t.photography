@@ -74,6 +74,7 @@ class PhotoSlider extends React.Component {
               .map(photoPath => <div className="sliderImageContainer">
               <PhotoBackground
                 key={photoPath}
+                category={category}
                 class="sliderImage"
                 details={photoPath}
                 height="100%"
