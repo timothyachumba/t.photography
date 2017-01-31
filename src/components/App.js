@@ -2,8 +2,7 @@ import React from 'react'
 import { Match, Miss } from 'react-router'
 
 import '../styles/styles.css'
-import photos from '../photos'
-import categories from '../categories'
+import pictures from '../pictures'
 import Home from './Home'
 import Gallery from './Gallery'
 import Grid from './Grid'
@@ -15,16 +14,14 @@ class App extends React.Component {
     super();
 
     this.state = {
-      photos: photos,
-      categories: categories
+      pictures: pictures
     }
 
   }
 
   getChildContext() {
     return {
-      categories: categories,
-      photos: photos
+      pictures: pictures
     };
   }
 
@@ -42,8 +39,7 @@ class App extends React.Component {
 }
 
 App.childContextTypes = {
-  categories: React.PropTypes.object,
-  photos: React.PropTypes.object
+  pictures: React.PropTypes.object
 };
 
 export default App;

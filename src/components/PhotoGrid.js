@@ -11,9 +11,8 @@ class PhotoGrid extends React.Component {
       transitionDuration: 0
     };
 
-    const photos = this.context.photos
-    const categories = this.context.categories
-    let category = this.context.category
+    const pictures = this.context.pictures
+    const category = this.context.category
 
     return (
       <div>
@@ -25,11 +24,10 @@ class PhotoGrid extends React.Component {
           updateOnEachImageLoad={false}
         >
           {
-            Object
-              .keys(categories[category])
-              .map(photoName => <Photo
-                key={photoName}
-                details={photos[categories[category][photoName]]}
+            pictures[category].map(photoPath => <Photo
+                key={photoPath}
+                details={photoPath}
+                category={category}
                 height=""
                 alt=""
                 width="auto" />)
@@ -41,8 +39,7 @@ class PhotoGrid extends React.Component {
 }
 
 PhotoGrid.contextTypes = {
-  categories: React.PropTypes.object,
-  photos: React.PropTypes.object,
+  pictures: React.PropTypes.object,
   category: React.PropTypes.string
 }
 

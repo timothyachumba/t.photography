@@ -33,7 +33,7 @@ class Category extends React.Component {
             to={`/${this.props.categoryName}`}>
             {this.props.categoryName}
           </Link>
-          <span className="count">23</span>
+          <span className="count">{this.props.picturesNumber}</span>
         </h1>
       </li>
     );

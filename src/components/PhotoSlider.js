@@ -39,9 +39,9 @@ class PhotoSlider extends React.Component {
     var newProgressLength = 0;
     var self = this;
 
-    const photos = this.context.photos
-    const categories = this.context.categories
-    let category = this.context.category
+    const pictures = this.context.pictures
+    const category = this.context.category
+    console.log(category)
 
     function slideCount(slideCount, currentSlide) {
       // currentProgressLength = (100/(slideCount))*currentSlide;
@@ -70,13 +70,13 @@ class PhotoSlider extends React.Component {
         <div style={this.state.progressStyle} className="progressBar"></div>
         <Slider ref={c => this.slider = c } {...settings}>
           {
-            Object
-              .keys(categories[category])
-              .map(photoName => <div className="sliderImageContainer">
+            pictures[category]
+              .map(photoPath => <div className="sliderImageContainer">
               <PhotoBackground
-                key={photoName}
+                key={photoPath}
+                category={category}
                 class="sliderImage"
-                details={photos[categories[category][photoName]]}
+                details={photoPath}
                 height="100%"
                 alt=""
                 width="auto" /></div>)
@@ -89,8 +89,7 @@ class PhotoSlider extends React.Component {
 
 PhotoSlider.contextTypes = {
   router: React.PropTypes.object,
-  categories: React.PropTypes.object,
-  photos: React.PropTypes.object,
+  pictures: React.PropTypes.object,
   category: React.PropTypes.string
 }
 

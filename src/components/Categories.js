@@ -42,13 +42,14 @@ class Categories extends React.Component {
           <ul className="categories">
             {
               Object
-                .keys(this.context.categories)
+                .keys(this.context.pictures)
                 .map(categoryName => <Category
                   key={categoryName}
-                  details={this.context.categories[categoryName]}
+                  details={this.context.pictures[categoryName]}
                   categoryName={categoryName}
                   parentMouseOver={this.onMouseOver}
-                  parentMouseOut={this.onMouseOut} />)
+                  parentMouseOut={this.onMouseOut}
+                  picturesNumber={this.context.pictures[categoryName].length} />)
             }
 
           </ul>
@@ -59,7 +60,7 @@ class Categories extends React.Component {
 }
 
 Categories.contextTypes = {
-  categories: React.PropTypes.object
+  pictures: React.PropTypes.object
 }
 
 Categories.childContextTypes = {

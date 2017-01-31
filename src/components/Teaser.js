@@ -6,20 +6,21 @@ class Teaser extends React.Component {
 
   render() {
 
-    const photos = this.context.photos
-    const categories = this.context.categories
+    const pictures = this.context.pictures
+    const numberOfCategories = Object.keys(pictures).length
 
-    const randomImage = Math.floor(Math.random() * 5) + 1
+    const randomImage = Math.floor(Math.random() * numberOfCategories) + 1
 
     return (
       <div className={this.props.teaserClass + ` image`+randomImage}>
         {
           Object
-            .keys(categories)
-            .map(categoryName => <PhotoBackground
+            .keys(pictures)
+            .map((categoryName) => <PhotoBackground
               key={categoryName}
               class={`photoBackground ` + categoryName}
-              details={photos[categories[categoryName][0]]}
+              details={pictures[categoryName][0]}
+              category={categoryName}
               height=""
               alt=""
               width="100%" />)
@@ -30,8 +31,7 @@ class Teaser extends React.Component {
 }
 
 Teaser.contextTypes = {
-  categories: React.PropTypes.object,
-  photos: React.PropTypes.object
+  pictures: React.PropTypes.object
 }
 
 
