@@ -4,14 +4,13 @@ var jsonPath = './src/pictures.json';
 var picturesPath = './public/images/photos/';
 var jsonData = {};
 // This is the URL that will be used for the pictures to load
-var relativeUrl = './';
 
 var categories = fs.readdirSync(picturesPath);
 categories.forEach(function(category) {
   jsonData[category] = fs
     .readdirSync(picturesPath + category)
     .map(function(picture) {
-      return relativeUrl + picture;
+      return picture;
     });
 });
 

@@ -3,7 +3,7 @@ import React from 'react'
 class PhotoBackground extends React.Component {
   render() {
     const divStyle = {
-      backgroundImage: 'url(' + this.props.details.image + ')'
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/photos/${this.context.category}/${this.props.details})`
     };
 
     return (
@@ -15,5 +15,8 @@ class PhotoBackground extends React.Component {
   }
 }
 
+PhotoBackground.contextTypes = {
+  category: React.PropTypes.string
+}
 
 export default PhotoBackground;
