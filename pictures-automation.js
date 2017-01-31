@@ -1,7 +1,7 @@
 var fs = require('fs');
 var _ = require('lodash');
 var jsonPath = './src/pictures.json';
-var picturesPath = './src/images/photos/';
+var picturesPath = './public/images/photos/';
 var jsonData = {};
 // This is the URL that will be used for the pictures to load
 var relativeUrl = './';
