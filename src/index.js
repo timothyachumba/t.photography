@@ -8,7 +8,7 @@ import App from './components/App'
 const Root = () => {
   return (
     <BrowserRouter>
-      <div>
+      <div className="fullHeight">
         <App />
       </div>
     </BrowserRouter>

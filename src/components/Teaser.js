@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import PhotoBackground from './PhotoBackground'
 
 class Teaser extends React.Component {
@@ -10,8 +9,10 @@ class Teaser extends React.Component {
     const photos = this.context.photos
     const categories = this.context.categories
 
+    const randomImage = Math.floor(Math.random() * 5) + 1
+
     return (
-      <div className={this.props.teaserClass}>
+      <div className={this.props.teaserClass + ` image`+randomImage}>
         {
           Object
             .keys(categories)
